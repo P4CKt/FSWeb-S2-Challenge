@@ -167,13 +167,14 @@ console.log(manav);
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(message,pattern){
-	for (const key in pattern) {
-		console.log(key);
+function emojileriDonustur(message, pattern) {
+		for (let key in pattern) {
+		message = message.replaceAll(key.toUpperCase(),key);
+		message = message.replaceAll(key, pattern[key]);
 	}
-	return message;
+		return message;
 }
-console.log(emojileriDonustur("Meşazını aldım :P",emojiler));
+	console.log(emojileriDonustur("Meşazını Aldım :P",emojiler));
 
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
