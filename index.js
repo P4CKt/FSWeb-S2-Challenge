@@ -74,21 +74,19 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 }
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
-
+console.log(cumleKur("Hello World!"));
 
 
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+console.log(cumleKur("Hello " ,"World!"));
 
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
 var bircumle;
-
-/* kodlar buraya */
-
-
+bircumle =cumleKur("Ben ","iyi ","bir ","yazılımcı ","olacağım!");
+console.log(bircumle);
 
 //		Sayfanın en üstünde global olarak tanımlanmış `cumleler` adında bir dizi bulunmaktadır. Bu dizinin içinde en çok 5 en az 1 adet string bulunan diziler bulunmaktadır. Aşağıdaki görevlerde aksi belirtilmedikçe bu dizi kullanılacaktır.
 
@@ -103,27 +101,29 @@ var bircumle;
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 	
+function cumlelereDonustur(array,preDefined=","){
+	return array.map(item => item.join(preDefined));
+	}
 
-function cumlelereDonustur(/* kodlar buraya */ ){
-	/* kodlar buraya */
-}
-
-
-
+console.log(cumlelereDonustur(cumleler," "));
 /* GÖREV 2:
 		paragrafOlustur fonksiyonuna aşağıdakileri uygulayın.
 			1. cumleler dizisi fonksiyonun birinci parametresi olarak alınacak
 			2. cumleKur fonksiyonu geriçağırım(callback) için fonksiyonun ikinci parametresi olarak alınacak
 			3. cumlelereDonustur fonksiyonu geriçağırım(callback) için fonksiyonun üçüncü parametresi olarak alınacak
-			4. Bir dizi oluşturulacak ve cumlelereDonustur fonksiyonu cumleler ve " " ayracıyla çağırılarak bu diziye aktarılacak
+			4. Bir dizi oluşturulacak ve cumlelereDonustur fonksiyonu cumleler ve " " ayracıyla çağırılarak bu diziye aktarılacak+
 			5. Oluşturulan bu dizinin tek sayılı anahtarlarını(index) [1,3,5,7,9] kullanarak ilk 5 elemanı geriçağırım olarak çağırılan cumleKur dizisinin parametreleri olarak aktarılarak çağırılacak ÖRNEK: callback(dizi[1],dizi[2],dizi[3],dizi[5],dizi[7])
 			6. Oluşturulan paragraf döndürülecek
 	*/
-	
-function paragrafOlustur(/* kodlar buraya */ ){
-	/* kodlar buraya */ 
-}
+console.clear();
+console.log("Paragraf oluştur")
+function paragrafOlustur(array,cbCumlekur,cbCumleler){
+	let newArray= cbCumleler(array," ");
+	let paragraf= cbCumlekur(newArray[1],newArray[3],newArray[5],newArray[7],newArray[9]);
+	return paragraf;
 
+}
+console.log(paragrafOlustur(cumleler, cumleKur,cumlelereDonustur));
 
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
@@ -132,21 +132,17 @@ function paragrafOlustur(/* kodlar buraya */ ){
 //3a çözümü
 /* kodlar buraya */
 
-
-
-
-
+meyveler.shift();
+meyveler.pop();
+console.log(meyveler);
  
 /* 			3b.  Bir tavşan ve bir kirpi arkadaşlar sebzeler dizimizin peşine düştü. Tavşan => 🐇 , Kirpi=> 🦔 , Tavşanla kirpi sebzeleri ele geçirmek için bir plan kurdular. Tavşan diziye önden saldıracak, kirpi ise arkalarından dolaşacak. Varsayalım ki arkadaşların planları başarılı oldu. Tavşanı dizinin ilk elemanına 🐇, Kirpiyi dizinin son elemanına ekleyin 🦔 
 */
 //3b çözümü
 /* kodlar buraya */
-
-
-
-
-
-
+sebzeler.push("🦔");
+sebzeler.unshift("🐇")
+console.log(sebzeler);
 
 
 /* 			3c. manav isminde bir dizi oluşturun.`meyveler` dizisi ilk elemanlara, `sebzeler` dizisi son elemanlara denk gelecek şekilde, iki diziyi birleştirip sonucu manav dizisine aktarın. (.concat metodu)
@@ -155,7 +151,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
 /* kodlar buraya */
 
 var manav;
-
+manav= meyveler.concat(sebzeler);
+console.log(manav);
 
 
 
@@ -170,11 +167,13 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
-
+function emojileriDonustur(message,pattern){
+	for (const key in pattern) {
+		console.log(key);
+	}
+	return message;
 }
-
+console.log(emojileriDonustur("Meşazını aldım :P",emojiler));
 
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
